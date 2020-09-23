@@ -1,0 +1,13 @@
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "lojas_dev.db"
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "lojas_dev.db"
+  },
+  "production": {
+    "config.use_env_variable": "DATABASE_URL"
+}
+}
