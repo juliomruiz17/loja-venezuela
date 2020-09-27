@@ -20,6 +20,18 @@ module.exports = {
       price: {
         type: Sequelize.FLOAT
       },
+      productId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 1,
+        references: {
+          model: 'orders',
+          key: 'id',
+          as: 'orderId',
+          onDelete:'Cascade',
+        },
+
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

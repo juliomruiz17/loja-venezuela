@@ -15,7 +15,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       emailConfirmation: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        required:true
       },
       address: {
         type: Sequelize.STRING
@@ -30,7 +31,17 @@ module.exports = {
         type: Sequelize.STRING
       },
       orderItems: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
+      },
+      orderId:  {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'products',
+          key: 'id',
+          as: 'productId'
+        },
+        
       },
       created_at: {
         allowNull: false,

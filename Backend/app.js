@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
+const db = require('./models/index')
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+
 
 
 const rotaLojas = require('./routes/lojas');
 const rotaProducts = require('./routes/products');
 const rotaOrders = require('./routes/orders');
-
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false}));  // dados simples
@@ -35,5 +36,10 @@ app.use((error, req, res, next) => {
 });
 
 
+db.sequelize.sync({ force: true}).then(() =>{
+    console.log('Nos hemos conectado a la base de datos');
+}).catch(error => {
+    console.log('Se ha producido un error', error);
+})
 
 module.exports = app;
