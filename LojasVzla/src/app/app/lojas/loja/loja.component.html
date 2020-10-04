@@ -1,0 +1,14 @@
+<a [routerLink]="['/lojas, lojas/:id']">
+    <div class="place-info-box" [@lojaAppeared]="LojaState">
+      <span class="place-info-box-icon"><img [src]="Loja.imagePath" /></span>
+  
+      <div class="place-info-box-content">
+        <span class="place-info-box-text">{{Loja.name}}</span>
+        <span class="place-info-box-star"><i class="fa fa-star"></i> {{Loja.rating}}</span>
+        <span class="place-info-box-detail">{{Loja.category}}</span>
+        <span class="place-info-box-detail">{{Loja.deliveryEstimate}}</span>
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+  </a>
+  
